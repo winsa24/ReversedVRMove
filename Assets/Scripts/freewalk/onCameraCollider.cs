@@ -12,7 +12,7 @@ public class onCameraCollider : MonoBehaviour
     private int count = 0;
 
     public GameObject track;
-
+    public GameObject track2;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,73 +23,71 @@ public class onCameraCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     private void OnTriggerEnter(Collider col)
     {
-        //if (col.gameObject.name == "offTrack")
-        //{
-
-        //    Debug.Log("off track");
-
-        //    var cubeRenderer = track.GetComponent<Renderer>();
-
-        //    //Call SetColor using the shader property name "_Color" and setting the color to red
-        //    cubeRenderer.material.SetColor("_Color", Color.red);
-
-        //    roundInfo.text += "off track : " + Time.time.ToString() + "\n";
-        //    // change line
-        //    Vector3 p = roundInfo.transform.position;
-        //    p.y += 0.4f;
-        //    roundInfo.transform.position = p;
-        //}
-        if (col.gameObject.name == "Track")
-        {
-
-            Debug.Log("on track");
+        if (col.gameObject.name == "offTrack"){
+            Debug.Log("enter offTrack");
 
             var cubeRenderer = track.GetComponent<Renderer>();
-
-            //Call SetColor using the shader property name "_Color" and setting the color to red
-            cubeRenderer.material.SetColor("_Color", Color.green);
-
-            roundInfo.text += "on the track : " + Time.time.ToString() + "\n";
-            // change line
-            Vector3 p = roundInfo.transform.position;
-            p.y += 0.4f;
-            roundInfo.transform.position = p;
-        }
-        else
-        {
-            Debug.Log("off track");
-
-            var cubeRenderer = track.GetComponent<Renderer>();
-
-            //Call SetColor using the shader property name "_Color" and setting the color to red
             cubeRenderer.material.SetColor("_Color", Color.red);
-
-            roundInfo.text += "off track : " + Time.time.ToString() + "\n";
-            // change line
-            Vector3 p = roundInfo.transform.position;
-            p.y += 0.4f;
-            roundInfo.transform.position = p;
+            var cubeRenderer2 = track2.GetComponent<Renderer>();
+            cubeRenderer2.material.SetColor("_Color", Color.red);
+            return;
         }
-        
-       
+        else if (col.gameObject.name == "Track")
+        {
+
+            Debug.Log("enter track");
+
+            var cubeRenderer = track.GetComponent<Renderer>();
+            cubeRenderer.material.SetColor("_Color", Color.green);
+            var cubeRenderer2 = track2.GetComponent<Renderer>();
+            cubeRenderer2.material.SetColor("_Color", Color.green);
+            return;
+        }else{
+          Debug.Log("enter floor");
+
+          var cubeRenderer = track.GetComponent<Renderer>();
+          cubeRenderer.material.SetColor("_Color", Color.red);
+          var cubeRenderer2 = track2.GetComponent<Renderer>();
+          cubeRenderer2.material.SetColor("_Color", Color.red);
+        }
+
+    }
+
+    private void OnTriggerStay(Collider col)
+    {
+
+
+
+
     }
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.tag != "Cube")
-        {
-            //Debug.Log("off track");
+      if (col.gameObject.name == "offTrack"){
+          Debug.Log("exit offTrack");
 
-            //roundInfo.text += "off track\n";
-            // change line
-            //Vector3 p = roundInfo.transform.position;
-            //p.y += 0.1f;
-            //roundInfo.transform.position = p;
-        }
+          var cubeRenderer = track.GetComponent<Renderer>();
+          cubeRenderer.material.SetColor("_Color", Color.green);
+          var cubeRenderer2 = track2.GetComponent<Renderer>();
+          cubeRenderer2.material.SetColor("_Color", Color.green);
+          return;
+      }else if (col.gameObject.name == "Track")
+      {
+
+          Debug.Log("exit track");
+
+          var cubeRenderer = track.GetComponent<Renderer>();
+          cubeRenderer.material.SetColor("_Color", Color.red);
+          var cubeRenderer2 = track2.GetComponent<Renderer>();
+          cubeRenderer2.material.SetColor("_Color", Color.red);
+          return;
+      }
+
+
     }
 }

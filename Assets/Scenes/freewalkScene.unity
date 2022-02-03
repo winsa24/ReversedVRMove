@@ -535,6 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundInfo: {fileID: 1246716938}
   track: {fileID: 813461353}
+  track2: {fileID: 120273240}
 --- !u!65 &405372762
 BoxCollider:
   m_ObjectHideFlags: 0
