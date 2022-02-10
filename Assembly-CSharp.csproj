@@ -196,6 +196,7 @@
     <Compile Include="Assets/Scripts/MoveSCollision.cs" />
     <Compile Include="Assets/Scripts/freewalk/MySelector.cs" />
     <Compile Include="Assets/Scripts/freewalk/WriteToLogfile.cs" />
+    <Compile Include="Assets/Scripts/freewalk/followCamera.cs" />
     <Compile Include="Assets/Scripts/freewalk/keyCube.cs" />
     <Compile Include="Assets/Scripts/freewalk/onCameraCollider.cs" />
     <Compile Include="Assets/Scripts/freewalk/onScene.cs" />

@@ -19,7 +19,7 @@ public class WriteToLogfile : MonoBehaviour
     {
         path = Application.persistentDataPath + "/userdata" + System.DateTime.Now.ToString("HH-mm-ss") + ".txt";
         // WriteStringToLocal("start log: \n");
-        WriteLogToFile("start log");
+        WriteLogToFile(roundInfo.text);
     }
 
     // Update is called once per frame

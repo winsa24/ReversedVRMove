@@ -23,29 +23,33 @@ public class onScene : MonoBehaviour
     {
         mode = controller.GetComponent<MySelector>().mode;
         print("======>" + mode);
-        reverseAll();
+        // reverseAll();
 
-        /*if ((mode % 3) == 0)
+        if ((mode % 3) == 0)
         {
-            reverseLeftAndRight();
+            reverseAll();
         }
         else if ((mode % 3) == 1)
         {
             reverseFrontAndBack();
         }
+        else if((mode % 3) == 2)
+        {
+            reverseLeftAndRight();
+        }
         else
         {
-            reverseAll();
-        }*/
+            transform.position = new Vector3(0, 0, 0);
+        }
     }
 
 
     void reverseFrontAndBack()
     {
         Vector3 p = vrCamera.position;
-        p.x *= -1f * scale + offset.x;
+        p.x = offset.x;
         p.y = offset.y;
-        p.z *= 2f * scale + offset.z;
+        p.z *= 2f * scale;
         transform.position = p;
     }
 
@@ -54,7 +58,7 @@ public class onScene : MonoBehaviour
         Vector3 p = vrCamera.position;
         p.x *= 2f * scale + offset.x;
         p.y = offset.y;
-        p.z *= -1f * scale + offset.z;
+        p.z = offset.z;
         transform.position = p;
     }
 
@@ -62,11 +66,12 @@ public class onScene : MonoBehaviour
     void reverseAll()
     {
         Vector3 p = vrCamera.position;
-        p.x *= 2f * scale + offset.x;
+        p.x *= 2f * scale;
         p.y = offset.y;
-        p.z *= 2f * scale + offset.z;
+        p.z *= 2f * scale;
         transform.position = p;
 
+        //transform.rotation = Quaternion.Euler(vrCamera.rotation.x * 2f, vrCamera.rotation.y * 2f, vrCamera.rotation.z * 2f);
         //print("vr:" + vrCamera.position);
         //print("scene:" + transform.position);
     }
