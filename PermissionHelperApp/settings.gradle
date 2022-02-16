@@ -1,3 +1,0 @@
-include ':PermissionHelper'
-include ':app'
-rootProject.name = "PermissionHelperApp"

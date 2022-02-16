@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing Track</title>
+</head>
+<body>
+    <input type="file" id="file-selector" accept=".txt">
+    <canvas id="drawing-board" hidden></canvas>
+</body>
+<script>
+    const fileSelector = document.getElementById('file-selector');
+    let canvas = document.getElementById("drawing-board");
+    let ctx = canvas.getContext("2d");
+
+    let pageWidth = document.documentElement.clientWidth;
+    let pageHeight = document.documentElement.clientHeight;
+    canvas.width = pageWidth;
+    canvas.height = pageHeight;
+
+    let canvasCenter = {x: pageWidth/2, y: pageHeight/2};
+    let lastPoint = {x: undefined, y: undefined};
+
+    fileSelector.addEventListener('change', (event) => {
+        const fileList = event.target.files;
+        const reader = new FileReader();
+        reader.onload = () => {
+            let userdata = reader.result;
+            cleanData(userdata);
+        }
+        reader.readAsText(fileList[0]);
+        fileSelector.hidden = true;
+        canvas.hidden = false;
+    });
+
+    let posXs = [];
+    let posYs = [];
+    let flag = true;
+    function cleanData(userdata){
+        // By lines
+        var lines = userdata.split('\n');
+        for(var line = 0; line < lines.length; line++){
+            // get all data point
+            if(lines[line][0] == "("){
+                
+                console.log(lines[line]);
+                let pos = getPos(lines[line]);
+                // posXs.push(pos.x);
+                // posYs.push(pos.y);
+                if(flag){
+                    flag = false;
+                    lastPoint = {x: canvasCenter.x + pos.x, y: canvasCenter.y + pos.y};
+                    continue;
+                }
+                // drawCircle(canvasCenter.x + pos.x, canvasCenter.y + pos.y, 5);
+                let newPoint = {x: canvasCenter.x + pos.x, y: canvasCenter.y + pos.y};
+                drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y);
+                lastPoint = newPoint;
+            }else if(lines[line].includes('Enable track')){
+                // ctx.strokeStyle = 'rgb(255, 221, 0)';
+            }else if(lines[line].includes('Disable')){
+                ctx.strokeStyle = 'rgb(0, 153, 255)';
+            }
+        }
+
+        for(var i = 0; i < posXs.length; i++){
+            let x = map(posXs[i], Math.min(...posXs), Math.max(...posXs), 0, pageWidth);
+            let y = map(posYs[i], Math.min(...posYs), Math.max(...posYs), 0, pageHeight);
+            if(i == 0){
+                
+                lastPoint = {x: x, y: y};
+                continue;
+            }
+            let newPoint = {x: x, y: y};
+            drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y);
+            lastPoint = newPoint;
+        }
+       
+
+    }
+
+    const map = (value, in_min, in_max, out_min, out_max) => (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+
+    function getPos(data){
+        let xyz = data.split(',');
+        let x = parseFloat(xyz[0].slice(1));
+        let y = parseFloat(xyz[1]);
+        let z = parseFloat(xyz[2].split(')'));
+
+        let p = {x: x*100, y: z*100};
+        console.log("p.x:"+ p.x);
+
+        return p;
+    }
+
+   
+    // 画点函数
+    function drawCircle(x, y, radius) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    // 划线函数
+    function drawLine(x1, y1, x2, y2) {
+        ctx.lineWidth = 3;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+        ctx.closePath();
+    }
+
+
+</script>
+</html>
