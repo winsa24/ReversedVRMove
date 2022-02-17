@@ -23,17 +23,17 @@ public class onScene : MonoBehaviour
     {
         mode = controller.GetComponent<MySelector>().mode;
         print("======>" + mode);
-        // reverseAll();
 
-        if ((mode % 3) == 0)
+        //show reverse info
+        if ((mode % 4) == 0)
         {
             reverseAll();
         }
-        else if ((mode % 3) == 1)
+        else if ((mode % 4) == 1)
         {
             reverseFrontAndBack();
         }
-        else if((mode % 3) == 2)
+        else if ((mode % 4) == 2)
         {
             reverseLeftAndRight();
         }
@@ -41,6 +41,7 @@ public class onScene : MonoBehaviour
         {
             transform.position = new Vector3(0, 0, 0);
         }
+
     }
 
 
@@ -74,11 +75,6 @@ public class onScene : MonoBehaviour
         //transform.rotation = Quaternion.Euler(vrCamera.rotation.x * 2f, vrCamera.rotation.y * 2f, vrCamera.rotation.z * 2f);
         //print("vr:" + vrCamera.position);
         //print("scene:" + transform.position);
-    }
-
-    void reverseRotation()
-    {
-
     }
 
 

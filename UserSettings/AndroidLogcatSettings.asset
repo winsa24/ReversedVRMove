@@ -3,23 +3,11 @@
     "m_SelectedPackage": {
         "deviceId": "1PASH9BZV39515",
         "name": "com.DefaultCompany.Jumppp",
-        "processId": 9594,
+        "processId": 7705,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "1PASH9BZV39515",
-            "name": "com.DefaultCompany.Jumppp",
-            "processId": 7924,
-            "exited": true
-        },
-        {
-            "deviceId": "1PASH9BZV39515",
-            "name": "com.DefaultCompany.Jumppp",
-            "processId": 28767,
-            "exited": true
-        },
         {
             "deviceId": "1PASH9BZV39515",
             "name": "com.DefaultCompany.Jumppp",
@@ -42,12 +30,30 @@
             "deviceId": "1PASH9BZV39515",
             "name": "com.oculus.shellenv",
             "processId": 3098,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "1PASH9BZV39515",
             "name": "com.DefaultCompany.Jumppp",
             "processId": 9594,
+            "exited": true
+        },
+        {
+            "deviceId": "1PASH9BZV39515",
+            "name": "com.oculus.shellenv",
+            "processId": 3013,
+            "exited": false
+        },
+        {
+            "deviceId": "1PASH9BZV39515",
+            "name": "com.DefaultCompany.Jumppp",
+            "processId": 29227,
+            "exited": false
+        },
+        {
+            "deviceId": "1PASH9BZV39515",
+            "name": "com.DefaultCompany.Jumppp",
+            "processId": 7705,
             "exited": false
         }
     ],

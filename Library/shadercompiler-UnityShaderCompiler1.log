@@ -1,2 +1,5 @@
 Base path: '/Users/weixiang/UnityWorkSpace/2019.4.32f1/Unity.app/Contents', plugins path '/Users/weixiang/UnityWorkSpace/2019.4.32f1/PlaybackEngines'
 Cmd: initializeCompiler
+Cmd: shutdown
+
+Quitting shader compiler process

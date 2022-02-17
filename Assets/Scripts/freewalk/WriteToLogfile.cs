@@ -8,17 +8,19 @@ using TMPro;
 
 public class WriteToLogfile : MonoBehaviour
 {
-    private int count = 0;
+    public int recordFrequency = 50;
     public Transform vrCamera;
     public TextMeshProUGUI roundInfo;
 
+    private int count = 0;
     private string path;
+    private string roundinfo;
 
     // Start is called before the first frame update
     void Start()
     {
         path = Application.persistentDataPath + "/userdata" + System.DateTime.Now.ToString("HH-mm-ss") + ".txt";
-        // WriteStringToLocal("start log: \n");
+        roundinfo = roundInfo.text;
         WriteLogToFile(roundInfo.text);
     }
 
@@ -27,10 +29,14 @@ public class WriteToLogfile : MonoBehaviour
     {
         
         count++;
-        if (count == 50)
+        if (count == recordFrequency)
         {
             count = 0;
             // WriteStringToLocal(vrCamera.position.ToString());
+            if(String.Compare(roundinfo, roundInfo.text) != 0)
+            {
+                WriteLogToFile(roundInfo.text);
+            }
             WriteLogToFile(vrCamera.position.ToString());
         }
     }

@@ -16,6 +16,8 @@ ScriptsOnlyBuild:
     - OVRControllerHelper
     - OVRHeadsetEmulator
     - OVRManager
+    Unity.Mobile.AndroidLogcat.Editor.dll:
+    - Unity.Android.Logcat.AndroidLogcatManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -80,6 +82,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
     - Class: 91
@@ -91,49 +95,49 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11450}
+      Script: {instanceID: 11562}
     - Class: 114
-      Script: {instanceID: 11460}
+      Script: {instanceID: 11656}
     - Class: 114
-      Script: {instanceID: 11464}
+      Script: {instanceID: 11856}
     - Class: 114
-      Script: {instanceID: 11594}
+      Script: {instanceID: 12080}
     - Class: 114
-      Script: {instanceID: 11794}
+      Script: {instanceID: 12504}
     - Class: 114
-      Script: {instanceID: 12018}
+      Script: {instanceID: 12582}
     - Class: 114
-      Script: {instanceID: 12440}
+      Script: {instanceID: 12720}
     - Class: 114
-      Script: {instanceID: 12518}
+      Script: {instanceID: 12792}
     - Class: 114
-      Script: {instanceID: 12726}
+      Script: {instanceID: 12904}
     - Class: 114
-      Script: {instanceID: 12838}
+      Script: {instanceID: 12988}
     - Class: 114
-      Script: {instanceID: 12922}
+      Script: {instanceID: 13190}
     - Class: 114
-      Script: {instanceID: 13124}
+      Script: {instanceID: 13688}
     - Class: 114
-      Script: {instanceID: 13620}
+      Script: {instanceID: 14084}
     - Class: 114
-      Script: {instanceID: 14018}
+      Script: {instanceID: 14112}
     - Class: 114
-      Script: {instanceID: 14046}
+      Script: {instanceID: 14134}
     - Class: 114
-      Script: {instanceID: 14068}
+      Script: {instanceID: 14504}
     - Class: 114
-      Script: {instanceID: 14438}
+      Script: {instanceID: 14622}
     - Class: 114
-      Script: {instanceID: 14598}
+      Script: {instanceID: 14666}
     - Class: 114
-      Script: {instanceID: 14618}
+      Script: {instanceID: 14686}
     - Class: 114
-      Script: {instanceID: 14710}
+      Script: {instanceID: 14778}
     - Class: 114
-      Script: {instanceID: 14858}
+      Script: {instanceID: 14926}
     - Class: 114
-      Script: {instanceID: 15276}
+      Script: {instanceID: 15344}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -163,22 +167,16 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: ae83e830e7a90c0aff918c4c2e520825
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: GraphicRaycaster
-  - hash:
-      serializedVersion: 2
       Hash: 89f9a1b4c64db9559e39f4a2e3bfaadd
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
   - hash:
       serializedVersion: 2
-      Hash: 7072231382eb3c4871b3dd75ad0227e1
+      Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
-    className: Slider
+    className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
       Hash: aeb62f729c52c814dec86c47dcac1471
@@ -187,34 +185,22 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
-      Hash: 0dbc3be398b4869a5c8d0d8481ee402c
+      Hash: aa88ae22474df55295327e4ee99e5a24
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
-    className: LayoutElement
-  - hash:
-      serializedVersion: 2
-      Hash: cc4274b586df3c02688bac01b88bd16c
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.EventSystems
-    className: EventSystem
-  - hash:
-      serializedVersion: 2
-      Hash: 5f1752ed2092162f016c19510c28a8b9
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Button
-  - hash:
-      serializedVersion: 2
-      Hash: 4bc4346a71a8df53a6b106f68ef3a190
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: CanvasScaler
+    className: Toggle
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Oculus.Spatializer.dll
     namespaceName: 
     className: ONSPVersion
+  - hash:
+      serializedVersion: 2
+      Hash: 4bc4346a71a8df53a6b106f68ef3a190
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: CanvasScaler
   - hash:
       serializedVersion: 2
       Hash: 0ac1315127a0a4ad8f88592e400d345d
@@ -541,6 +527,12 @@ ScriptsOnlyBuild:
     className: ObjectManipulator
   - hash:
       serializedVersion: 2
+      Hash: 0dbc3be398b4869a5c8d0d8481ee402c
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: LayoutElement
+  - hash:
+      serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -763,6 +755,12 @@ ScriptsOnlyBuild:
     className: OVRPassthroughLayer
   - hash:
       serializedVersion: 2
+      Hash: cc4274b586df3c02688bac01b88bd16c
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: EventSystem
+  - hash:
+      serializedVersion: 2
       Hash: e269129a92a880f5211d20d6b89e9cf1
     assemblyName: Oculus.Platform.dll
     namespaceName: Oculus.Platform.Samples.VrBoardGame
@@ -811,7 +809,7 @@ ScriptsOnlyBuild:
     className: ONSPProfiler
   - hash:
       serializedVersion: 2
-      Hash: 5cc439bf63c0539d39588e69465ac2ab
+      Hash: fd68d84f33fad85aac38f2739c0ee270
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAsset
@@ -997,7 +995,7 @@ ScriptsOnlyBuild:
     className: OVROverlayCanvas
   - hash:
       serializedVersion: 2
-      Hash: 1a58d31bd6250f7f3942db2889a9853b
+      Hash: 44ea47a117f5d8e4f65a01f0b800cece
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WriteToLogfile
@@ -1231,6 +1229,12 @@ ScriptsOnlyBuild:
     className: CharacterCapsule
   - hash:
       serializedVersion: 2
+      Hash: 5f1752ed2092162f016c19510c28a8b9
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Button
+  - hash:
+      serializedVersion: 2
       Hash: 50ed2751f7b39ef122ae2de986a3421b
     assemblyName: Oculus.VR.dll
     namespaceName: 
@@ -1343,12 +1347,6 @@ ScriptsOnlyBuild:
     assemblyName: Oculus.Platform.dll
     namespaceName: Oculus.Platform.Samples.VrHoops
     className: RemotePlayer
-  - hash:
-      serializedVersion: 2
-      Hash: 5ad4aa237d47ac2bab17bacb672edf7a
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
       Hash: ab0a308aacb67350e8cee127a7df04d2
@@ -1477,7 +1475,7 @@ ScriptsOnlyBuild:
     className: OvrAvatarRemoteDriver
   - hash:
       serializedVersion: 2
-      Hash: 389eb2496549efb630aa82e15072c7bf
+      Hash: 6d3fd795d82a1923faeb48df6544bb99
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MySelector
@@ -1489,7 +1487,7 @@ ScriptsOnlyBuild:
     className: HorizontalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 7abdf6195e530455923d81f2f009ab0f
+      Hash: 300fd99066f8c288e85f5e81ce65fe34
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_FontAsset
@@ -1655,6 +1653,12 @@ ScriptsOnlyBuild:
     assemblyName: Oculus.Platform.dll
     namespaceName: Oculus.Platform.Samples.VrHoops
     className: GoalMover
+  - hash:
+      serializedVersion: 2
+      Hash: ae83e830e7a90c0aff918c4c2e520825
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: GraphicRaycaster
   - hash:
       serializedVersion: 2
       Hash: 34c971ccf5a4d4c276f7753251cba95d
@@ -1957,12 +1961,6 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
-      Hash: aa88ae22474df55295327e4ee99e5a24
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Toggle
-  - hash:
-      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1979,6 +1977,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OculusSampleFramework
     className: DistanceGrabberSample
+  - hash:
+      serializedVersion: 2
+      Hash: 7072231382eb3c4871b3dd75ad0227e1
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Slider
   - hash:
       serializedVersion: 2
       Hash: 8cf111447f1f4754264a4de62c3f57df
@@ -2012,4 +2016,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/freewalkScene.unity
-  playerPath: D:/ReversedVRMove-main/reverseWorld.apk
+  playerPath: /Users/weixiang/UnityWorkSpace/Jumppp/reverseWorld.apk
