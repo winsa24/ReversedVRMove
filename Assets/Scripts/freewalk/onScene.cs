@@ -8,9 +8,8 @@ public class onScene : MonoBehaviour
     public float scale = 1f;
     public GameObject controller;
 
-    private Vector3 offset = new Vector3(0.1f, 0f, -1f);
-
     private int mode;
+    private float height = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,19 +26,22 @@ public class onScene : MonoBehaviour
         //show reverse info
         if ((mode % 4) == 0)
         {
+            transform.position = new Vector3(0, 0, 0);
             reverseAll();
         }
         else if ((mode % 4) == 1)
         {
+            transform.position = new Vector3(0, 0, 0);
             reverseFrontAndBack();
         }
         else if ((mode % 4) == 2)
         {
+            transform.position = new Vector3(0, 0, 0);
             reverseLeftAndRight();
         }
         else
         {
-            transform.position = new Vector3(0, 0, 0);
+            transform.position = new Vector3(0, 0.1f, 0);
         }
 
     }
@@ -48,33 +50,28 @@ public class onScene : MonoBehaviour
     void reverseFrontAndBack()
     {
         Vector3 p = vrCamera.position;
-        p.x = offset.x;
-        p.y = offset.y;
         p.z *= 2f * scale;
+        p.y = height;
+        p.x = 0;
         transform.position = p;
     }
 
     void reverseLeftAndRight()
     {
         Vector3 p = vrCamera.position;
-        p.x *= 2f * scale + offset.x;
-        p.y = offset.y;
-        p.z = offset.z;
+        p.x *= 2f * scale;
+        p.y = height;
+        p.z = 0;
         transform.position = p;
     }
-
 
     void reverseAll()
     {
         Vector3 p = vrCamera.position;
         p.x *= 2f * scale;
-        p.y = offset.y;
         p.z *= 2f * scale;
+        p.y = height;
         transform.position = p;
-
-        //transform.rotation = Quaternion.Euler(vrCamera.rotation.x * 2f, vrCamera.rotation.y * 2f, vrCamera.rotation.z * 2f);
-        //print("vr:" + vrCamera.position);
-        //print("scene:" + transform.position);
     }
 
 

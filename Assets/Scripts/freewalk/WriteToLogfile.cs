@@ -8,7 +8,7 @@ using TMPro;
 
 public class WriteToLogfile : MonoBehaviour
 {
-    public int recordFrequency = 50;
+    public int recordFrequency = 30;
     public Transform vrCamera;
     public TextMeshProUGUI roundInfo;
 
@@ -36,6 +36,7 @@ public class WriteToLogfile : MonoBehaviour
             if(String.Compare(roundinfo, roundInfo.text) != 0)
             {
                 WriteLogToFile(roundInfo.text);
+                roundinfo = roundInfo.text;
             }
             WriteLogToFile(vrCamera.position.ToString());
         }
