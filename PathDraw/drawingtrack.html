@@ -8,14 +8,6 @@
 </head>
 <body>
     <input type="file" id="file-selector" accept=".txt">
-    <div>
-        Line Color Info:
-        <br>
-        Green : Enable Track 
-        <br>
-        Red : Disable Track
-
-    </div>
     <canvas id="drawing-board" hidden></canvas>
 </body>
 <script>
@@ -36,7 +28,7 @@
         const reader = new FileReader();
         reader.onload = () => {
             let userdata = reader.result;
-            // init();
+            init();
             cleanData(userdata);
         }
         reader.readAsText(fileList[0]);
@@ -45,15 +37,31 @@
     });
 
     function init() {
-        let trackwidth = 50;
-        roundRect(0, 0, canvasCenter.x, canvasCenter.y, 50, 'rgb(255,255,0)');
-        roundRect(0+trackwidth, 0+trackwidth, canvasCenter.x-trackwidth, canvasCenter.y-trackwidth, 50, 'rgb(255,255,255)');
+        // draw track
+        // let trackwidth = 50;
+        // roundRect(0, 0, canvasCenter.x, canvasCenter.y, 50, 'rgb(255,255,0)');
+        // roundRect(0+trackwidth, 0+trackwidth, canvasCenter.x-trackwidth, canvasCenter.y-trackwidth, 50, 'rgb(255,255,255)');
+
+        roundRect(10, 10, 25, 25, 5, 'rgb(51, 255, 189)');
+        ctx.fillText("reverse all", 40, 20);
+        roundRect(10, 40, 25, 55, 5, 'rgb(255, 189, 51)');
+        ctx.fillText("reverse front and back", 40, 50);
+        roundRect(10, 70, 25, 85, 5, 'rgb(130, 74, 161)');
+        ctx.fillText("reverse left and right", 40, 80);
+        roundRect(10, 100, 25, 115, 5, 'rgb(0, 0, 0)');
+        ctx.fillText("normal translate", 40, 110);
+
+        drawLine(10, 140, 25, 140,  'rgb(0,0,0)', 3, 3);
+        ctx.fillText("VR world", 40, 145);
+        drawLine(10, 150, 25, 150, 'rgb(0,0,0)', 0, 0);
+        ctx.fillText("Real world", 40, 155);
     }
 
-    let posXs = [];
-    let posYs = [];
+
+
     let flag = true;
     let strokeColor;
+    let segment1, segment2;
     function cleanData(userdata){
         // By lines
         var lines = userdata.split('\n');
@@ -68,41 +76,28 @@
                     lastPoint = {x: canvasCenter.x + pos.x, y: canvasCenter.y + pos.y};
                     continue;
                 }
-                // drawCircle(canvasCenter.x + pos.x, canvasCenter.y + pos.y, 5);
                 let newPoint = {x: canvasCenter.x + pos.x, y: canvasCenter.y + pos.y};
-                setTimeout("drawLine("+lastPoint.x+","+lastPoint.y + "," + newPoint.x + "," + newPoint.y + ", '" + strokeColor + "');",500 * line);
-                // drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y);
+                setTimeout("drawLine("+lastPoint.x+","+lastPoint.y + "," + newPoint.x + "," + newPoint.y + ", '" + strokeColor + "', " + segment1 + ", " + segment2 + ");",5 * line);
                 lastPoint = newPoint;
-            }else if(lines[line].includes('reverse rotate')){
-                // console.log(lines[line]);
-                strokeColor = 'rgb(255, 221, 0)';
-            }else if(lines[line].includes('normal rotate')){
-                strokeColor = 'rgb(0, 153, 255)';
-                console.log(strokeColor);
-            }else if(lines[line].includes('reverse rotate')){
-                // console.log(lines[line]);
-                strokeColor = 'rgb(255, 221, 0)';
-            }else if(lines[line].includes('normal rotate')){
-                strokeColor = 'rgb(0, 153, 255)';
-                console.log(strokeColor);
+            }else if(lines[line].includes('VR')){
+                // strokeColor = 'rgb(255, 221, 0)'; //yellow
+                segment1 = 10;
+                segment2 = 10;
+            }else if(lines[line].includes('Real')){
+                // strokeColor = 'rgb(0, 153, 255)'; // blue
+                segment1 = 0;
+                segment2 = 0;
+            }else if(lines[line].includes('reverse all')){
+                strokeColor = 'rgb(51, 255, 189)'; //aqua
+            }else if(lines[line].includes('reverse front')){
+                strokeColor = 'rgb(255, 189, 51)'; //orange
+            }else if(lines[line].includes('reverse left')){
+                strokeColor = 'rgb(130, 74, 161)'; //purple
+            }else if(lines[line].includes('normal')){
+                strokeColor = 'rgb(0, 0, 0)'; //black
             }
+
         }
-
-        // for(var i = 0; i < posXs.length; i++){
-        //     let x = map(posXs[i], Math.min(...posXs), Math.max(...posXs), 0, pageWidth);
-        //     let y = map(posYs[i], Math.min(...posYs), Math.max(...posYs), 0, pageHeight);
-        //     if(i == 0){
-                
-        //         lastPoint = {x: x, y: y};
-        //         continue;
-        //     }
-        //     let newPoint = {x: x, y: y};
-        //     // setTimeout("drawLine("+lastPoint.x+","+lastPoint.y + "," + newPoint.x + "," + newPoint.y + ");",100 * i);
-        //     // drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y);
-        //     lastPoint = newPoint;
-        // }
-       
-
     }
 
     const map = (value, in_min, in_max, out_min, out_max) => (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
@@ -117,10 +112,10 @@
         return p;
     }
 
-    // 划线函数
-    function drawLine(x1, y1, x2, y2, color) {
+    function drawLine(x1, y1, x2, y2, color, segment1, segment2) {
         ctx.strokeStyle = color;
         ctx.beginPath();
+        ctx.setLineDash([segment1, segment2]);
         ctx.lineWidth = 3;
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
