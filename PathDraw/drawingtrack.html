@@ -55,6 +55,7 @@
         ctx.fillText("VR world", 40, 145);
         drawLine(10, 150, 25, 150, 'rgb(0,0,0)', 0, 0);
         ctx.fillText("Real world", 40, 155);
+        ctx.fillText("Adjusting time:", 10, 185);
     }
 
 
@@ -62,6 +63,9 @@
     let flag = true;
     let strokeColor;
     let segment1, segment2;
+
+    let timer = true;
+
     function cleanData(userdata){
         // By lines
         var lines = userdata.split('\n');
@@ -69,15 +73,27 @@
             // get all data point
             if(lines[line][0] == "("){
                 let pos = getPos(lines[line]);
-                // posXs.push(pos.x);
-                // posYs.push(pos.y);
                 if(flag){
                     flag = false;
                     lastPoint = {x: canvasCenter.x + pos.x, y: canvasCenter.y + pos.y};
                     continue;
                 }
                 let newPoint = {x: canvasCenter.x + pos.x, y: canvasCenter.y + pos.y};
-                setTimeout("drawLine("+lastPoint.x+","+lastPoint.y + "," + newPoint.x + "," + newPoint.y + ", '" + strokeColor + "', " + segment1 + ", " + segment2 + ");",5 * line);
+
+                let dis2p = Math.sqrt(Math.pow(lastPoint.x - newPoint.x, 2) + Math.pow(lastPoint.y - newPoint.y, 2)); // two next points distance
+                let dis2c = Math.sqrt(Math.pow(canvasCenter.x - newPoint.x, 2) + Math.pow(canvasCenter.y - newPoint.y, 2));
+
+                // TODO:: filter outliers
+                if( dis2p < 100){
+                    setTimeout("drawLine("+lastPoint.x+","+lastPoint.y + "," + newPoint.x + "," + newPoint.y + ", '" + strokeColor + "', " + segment1 + ", " + segment2 + ");",5 * line);
+                    
+                }
+                // TODO:: count time to depart
+                if(timer){  //depart
+                    setTimeout("drawTimer(5*" + line + ")",5 * line );
+                }
+                if(dis2c < 30){timer = false;}
+
                 lastPoint = newPoint;
             }else if(lines[line].includes('VR')){
                 // strokeColor = 'rgb(255, 221, 0)'; //yellow
@@ -100,8 +116,6 @@
         }
     }
 
-    const map = (value, in_min, in_max, out_min, out_max) => (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-
     function getPos(data){
         let xyz = data.split(',');
         let x = parseFloat(xyz[0].slice(1));
@@ -123,7 +137,8 @@
         ctx.lineTo(x2, y2);
         ctx.stroke();
         ctx.closePath();
-        console.log("lastPoint.x:" + (x1-canvasCenter.x) + ", lastPoint.y:" + (y1-canvasCenter.y));
+        // console.log("lastPoint.x:" + (x1-canvasCenter.x) + ", lastPoint.y:" + (y1-canvasCenter.y));
+        console.log("lastPoint.x:" + (x1) + ", lastPoint.y:" + (y1));
     }
 
     function roundRect(x0, y0, x1, y1, r, color)
@@ -146,6 +161,13 @@
         ctx.fill();
     }
 
+    function drawTimer(time){
+        ctx.fillStyle = '#ffffff'; // or whatever color the background is.
+        ctx.fillText(time-1, 100, 185);
+        ctx.fillStyle = '#000000'; // or whatever color the text should be.
+        ctx.fillText(time, 100, 185);
+
+    }
 
 </script>
 </html>
