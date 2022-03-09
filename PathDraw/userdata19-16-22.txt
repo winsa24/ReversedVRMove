@@ -1,0 +1,80 @@
+normal translate
+Start attemp 0
+Enable track
+Real world before VR
+(0.0, 1.6, 0.0)
+(0.0, 1.5, 0.1)
+(-0.1, 1.5, 0.1)
+(0.0, 1.5, 0.3)
+(0.0, 1.6, 0.4)
+(-0.1, 1.6, 0.3)
+(0.1, 1.6, 0.2)
+(-0.1, 1.6, 0.1)
+(0.0, 1.6, 0.0)
+(0.0, 1.6, 0.1)
+(0.0, 1.7, -0.1)
+(0.0, 1.7, -0.1)
+(0.0, 1.7, -0.1)
+(0.0, 1.7, -0.1)
+(0.0, 1.7, -0.1)
+(0.0, 1.7, -0.1)
+reverse all
+Start attemp 0
+Enable track
+VR world
+(0.0, 1.7, -0.1)
+reverse all
+Start attemp 0
+Enable track
+Real world after VR
+(0.0, 1.7, -0.1)
+(0.0, 1.7, -0.1)
+reverse all
+Start attemp 0
+Enable track
+Real world before VR
+(0.0, 1.7, -0.1)
+(0.0, 1.7, -0.1)
+(0.0, 1.7, -0.1)
+(0.0, 1.7, -0.1)
+(0.0, 1.7, -0.1)
+(0.0, 1.7, -0.1)
+reverse all
+Start attemp 0
+Disable track
+Real world before VR
+(0.0, 1.7, -0.1)
+reverse all
+Start attemp 0
+Enable track
+Real world before VR
+(0.0, 1.7, -0.1)
+reverse all
+Start attemp 1
+Enable track
+Real world before VR
+(0.0, 1.7, -0.1)
+reverse all
+Start attemp 2
+Enable track
+Real world before VR
+(0.0, 1.7, -0.1)
+reverse all
+Start attemp 3
+Enable track
+Real world before VR
+(0.0, 1.7, -0.1)
+reverse all
+Start attemp 5
+Enable track
+Real world before VR
+(0.0, 1.7, -0.1)
+(0.0, 1.7, -0.1)
+(0.0, 1.6, 0.0)
+(0.0, 1.6, 0.0)
+(0.0, 1.6, 0.1)
+(0.1, 1.6, 0.1)
+(0.1, 1.6, 0.0)
+(0.1, 1.6, 0.0)
+(0.1, 1.6, 0.0)
+(0.1, 1.6, 0.0)

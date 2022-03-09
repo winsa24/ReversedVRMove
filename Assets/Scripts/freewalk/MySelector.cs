@@ -10,11 +10,11 @@ public class MySelector : MonoBehaviour
     public OVRInput.Controller controllerL;
     public GameObject track;
     private bool trackFlag = true;
-    private bool worldFlag = true;
+    private int worldFlag = 0;
 
 
     public int mode = 0;
-    public bool rotate = true;
+    public int attemp = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class MySelector : MonoBehaviour
         
         if (OVRInput.GetDown(OVRInput.Button.One, controllerR))
         {
-            worldFlag = !worldFlag;
+            worldFlag++;
             showInfo();
         }
         if (OVRInput.GetDown(OVRInput.Button.Two, controllerR))
@@ -43,7 +43,7 @@ public class MySelector : MonoBehaviour
         }
         if (OVRInput.GetDown(OVRInput.Button.Two, controllerL))
         {
-            rotate = !rotate;
+            attemp++;
             showInfo();
         }
 
@@ -70,14 +70,8 @@ public class MySelector : MonoBehaviour
             modeText.text = "normal translate";
         }
 
-        if (rotate)
-        {
-            modeText.text += "\nnormal rotate";
-        }
-        else
-        {
-            modeText.text += "\nreverse rotate";
-        }
+        modeText.text += "\nStart attemp " + attemp;
+
 
         // show track info
         if (trackFlag)
@@ -93,13 +87,17 @@ public class MySelector : MonoBehaviour
 
 
         // show track info
-        if (worldFlag)
+        if (worldFlag%3 == 0)
         {
-            modeText.text += "\nReal world";
+            modeText.text += "\nReal world before VR";
+        }
+        else if(worldFlag%3 ==1)
+        {
+            modeText.text += "\nVR world";
         }
         else
         {
-            modeText.text += "\nVR world";
+            modeText.text += "\nReal world after VR";
         }
 
     }

@@ -816,8 +816,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Instructions : \nPress Button X to switch reversed direction\nPress Button
-    A to switch between real world and virtual world\nPress Button B to show or hide
-    track"
+    Y to start record an attampt\nPress Button A to switch between real world and
+    virtual world\nPress Button B to show or hide track"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1402,11 +1402,12 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'reverse all
 
-    reverse rotate
+    Start attemp 0
 
     Enable track
 
-    Real world'
+    Real world before
+    VR'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1927,7 +1928,7 @@ MonoBehaviour:
   controllerL: 0
   track: {fileID: 0}
   mode: 0
-  rotate: 1
+  attemp: 0
 --- !u!1 &902843553
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,7 +2344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Face me \nand \nClick Y to \nstart record"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3146,7 +3147,7 @@ MonoBehaviour:
   controllerL: 1
   track: {fileID: 343712866}
   mode: 0
-  rotate: 1
+  attemp: 0
 --- !u!114 &1498450092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3164,7 +3165,7 @@ MonoBehaviour:
   controllerL: 1
   track: {fileID: 343712866}
   mode: 0
-  rotate: 1
+  attemp: 0
 --- !u!1 &1584430635
 GameObject:
   m_ObjectHideFlags: 0

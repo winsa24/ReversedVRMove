@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "1PASH9BZV39515",
         "name": "com.DefaultCompany.Jumppp",
-        "processId": 6050,
+        "processId": 3924,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -138,6 +138,12 @@
             "deviceId": "1PASH9BZV39515",
             "name": "com.DefaultCompany.Jumppp",
             "processId": 6050,
+            "exited": false
+        },
+        {
+            "deviceId": "1PASH9BZV39515",
+            "name": "com.DefaultCompany.Jumppp",
+            "processId": 3924,
             "exited": false
         }
     ],

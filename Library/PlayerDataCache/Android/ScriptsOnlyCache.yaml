@@ -16,8 +16,6 @@ ScriptsOnlyBuild:
     - OVRControllerHelper
     - OVRHeadsetEmulator
     - OVRManager
-    Unity.Mobile.AndroidLogcat.Editor.dll:
-    - Unity.Android.Logcat.AndroidLogcatManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -1475,7 +1473,7 @@ ScriptsOnlyBuild:
     className: OvrAvatarRemoteDriver
   - hash:
       serializedVersion: 2
-      Hash: 6d3fd795d82a1923faeb48df6544bb99
+      Hash: 3bd0806c3de12bf9257732d0caa077b0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MySelector

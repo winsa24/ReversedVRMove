@@ -17,23 +17,13 @@ public class followCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotate = controller.GetComponent<MySelector>().rotate;
-
 
         Vector3 p = camera.transform.position;
         p.y = 0.05f;
         transform.position = p;
 
-        if (rotate)
-        {
-            transform.rotation = Quaternion.Euler(90f, 0, -camera.transform.eulerAngles.y);
-        }
-        
-        else
-        {
-            transform.rotation = Quaternion.Euler(90f, 0, camera.transform.eulerAngles.y);
-        }
+        transform.rotation = Quaternion.Euler(90f, 0, -camera.transform.eulerAngles.y);
 
-       
+
     }
 }
