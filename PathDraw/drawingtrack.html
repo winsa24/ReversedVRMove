@@ -104,7 +104,7 @@
                 if(dis2c < 30){timer = false;}
 
                 lastPoint = newPoint;
-            }else if(lines[line].includes('VR')){
+            }else if(lines[line].includes('VR world')){
                 segment1 = 10;
                 segment2 = 10;
                 cldata[datatype].push('VR');
@@ -216,7 +216,6 @@
         legend();
         flag = true;
         
-
         for (let i = 0; i < cldata[n].length; i++){
             console.log(cldata[n][i]);
             if(cldata[n][i] == 'VR'){
